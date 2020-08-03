@@ -15,10 +15,10 @@ export default new Vuex.Store({
             memo.id = max + 1;
 
             state.memos.push(memo);
+        },
+        update(state, data) {
+            let x = state.memos.find(memo => memo.id == data.id);
+            x.body = data.body;
         }
-    },
-    update(state, data) {
-        let x = state.memos.find(memo => memo.id == data.id);
-        x.body = data.body;
     }
 });
