@@ -1,41 +1,45 @@
 <template>
   <div class="home">
-    <header>My Memos</header>
+    <Header>My Memos</Header>
     <ul v-for="memo in newest" :key="memo.id">
       <li>
-        <router-link :to="{name: 'Edit', params: { id: memo.id }}">
-          {{ memo.body }}
-        </router-link>
+        <router-link :to="{name: 'Edit', params: { id: memo.id }}">{{ memo.body }}</router-link>
       </li>
     </ul>
   </div>
 </template>
 
 <style>
-  li {
-    list-style: none;
-  }
-  textarea {
-      width:100%;
-      height: 10em;
-  }
+li {
+  list-style: none;
+}
 
-  button {
-      border: 1px solid #333;
-      background-color: #333;
-      color:#fff;
-      padding:10px 20px;
-      margin-top: 10px;
-  }
+textarea {
+  width: 100%;
+  height: 10em;
+}
+
+button {
+  border: 1px solid #333;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
 </style>
 
 <script>
-  export default{
-    name: "home",
-    computed: {
-      newest: function() {
-        return this.$store.state.memos.slice().reverse();
-      }
-    }
-  }
+import Header from "@/components/Header.vue";
+
+export default {
+  name: "home",
+  components: {
+    Header,
+  },
+  computed: {
+    newest: function () {
+      return this.$store.state.memos.slice().reverse();
+    },
+  },
+};
 </script>
