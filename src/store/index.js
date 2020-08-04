@@ -9,7 +9,7 @@ export default new Vuex.Store({
 
   state: {
     memos: [
-      { id: '', body: '' }
+      { id: '1', body: 'サンプルテキスト' }
     ]
   },
   mutations: {
